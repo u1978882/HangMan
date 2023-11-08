@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanged Man</title>
+
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script defer src="https://u1978882.github.io/QuerrySelector/QuerrySelector.js"></script>
+    <script defer src="js/functions.js"></script>
+    <script defer src="js/main.js"></script>
+
+</head>
+<body class="dark">
+
+    <div class="top-bar">
+        <div></div>
+        <h1>Hanged Man</h1>
+        <div class="top-bar-button">
+            <button id="themeToggle"></button>
+        </div>
+    </div>
+
+    <div class="secondary-bar">
+        <div id="nameDisplay"></div>
+    </div>
+
+    <div id="nError">
+        You have 0 errors.
+    </div>
+
+    <main id="main">
+        <div id="word">
+            
+        </div>
+
+        <div id="tryedLetters">
+
+        </div>
+    </main>
+
+
+    <div id="name-modal" class="modal">
+        <div class="content">
+            <h1>New game</h1>
+            <h2>Enter your name</h2>
+            <form id="form-name">
+                <input id="name" name="name" type="text" required autofocus>
+            </form>
+        </div>
+    </div>
+
+    <div id="succes-modal" class="modal">
+        <div class="content">
+            <h1>Congratulations!!</h1>
+            <h2 class="finalWord"></h2>
+            <button onclick="newGame()">New game</button>
+        </div>
+    </div>
+
+    <div id="error-modal" class="modal">
+        <div class="content">
+            <h1>You failed</h1>
+            <h2 class="finalWord"></h2>
+            <button onclick="newGame()">New game</button>
+        </div>
+    </div>
+    
+</body>
+</html>
