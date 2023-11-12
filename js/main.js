@@ -98,7 +98,6 @@ function addTryedLetter(newLetter) {
 
 
 function listenerKey(event){
-    //console.log(nErrors)
     let correcIndex = [];
     if (event.key.length == 1 && event.key != " " && event.key.match(/[a-zA-Z]/i)) {
         let correct = false;
@@ -110,8 +109,8 @@ function listenerKey(event){
             }
         }
         addTryedLetter(event.key.toUpperCase())
-        console.log(nKnownLetters, currentWord.length)
 
+    
         if (nKnownLetters == currentWord.length) win()
         else if (nErrors == MAX_ERROR) lose();
         
