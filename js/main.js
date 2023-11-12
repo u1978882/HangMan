@@ -1,5 +1,5 @@
 
-const MAX_ERROR = 7;
+const MAX_ERROR = 8;
 let currentWord = "";
 let currentKnownLetters = [];
 let tryedLetters = [];
@@ -42,12 +42,15 @@ function newGame() {
     qs("#name-modal").addClass("show")
     qs("#main").removeClass("show")
     qs("#name").value("")
+    qs("#errorProgress").setStyle("width", 0)
     currentWord = getRandomWord();
     currentKnownLetters = [];
     for (let index = 0; index < currentWord.length; index++) currentKnownLetters.push(false)
     nKnownLetters = 0;
     nErrors = 0;
     tryedLetters = [];
+    qs("#imageHanged").attr("src", getImageFromError(nErrors));
+    qs("#tryedLetters").innerHTML("");
     qs(".finalWord").innerText("Your word was " + currentWord)
     console.log(currentWord)
     renderWord([])
@@ -65,12 +68,17 @@ function renderWord(newCorrectIndex) {
         }
         return s;
     })
+    if (nKnownLetters == 0) qs("#word").addClass("empty-word")
+    else qs("#word").removeClass("empty-word")
 }
 
 function addTryedLetter(newLetter) {
     if (!tryedLetters.includes(newLetter)){
-        nErrors++;
-        qs("#nError").innerText("You heve " + nErrors + " " + (nErrors == 1 ? "error" : "errors"))
+        if (!currentWord.includes(newLetter)) {
+            nErrors++
+            qs("#errorProgress").setStyle("width", ((100/MAX_ERROR)*nErrors) + "%")
+            qs("#imageHanged").attr("src", getImageFromError(nErrors));
+        }
         tryedLetters.push(newLetter);
         let nInstancesLetter = currentWord.split(newLetter).length-1
         if (nInstancesLetter > 0) nKnownLetters += nInstancesLetter;
@@ -112,13 +120,15 @@ function listenerKey(event){
 }
 
 function win(){
-    qs("#succes-modal").addClass("show")
+    setTimeout(() => {
+        qs("#succes-modal").addClass("show")
+    }, 500)
     document.removeEventListener("keydown", listenerKey);
-    console.log("keydown")
 }
 
 function lose() {
     document.removeEventListener("keydown", listenerKey);
-    qs("#error-modal").addClass("show")
-
+    setTimeout(() => {
+        qs("#error-modal").addClass("show")
+    }, 500)
 }

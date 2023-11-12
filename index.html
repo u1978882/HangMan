@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hanged Man</title>
-
+    <meta name="author" content="Arnau Costa Pont" />
+    <meta name="author" content="Lluis Vinent Juanico" />
     <link rel="stylesheet" href="/styles/main.css">
+    <link rel="shortcut icon" href="assets/images/hangman_8.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -17,31 +19,28 @@
 <body class="dark">
 
     <div class="top-bar">
-        <div></div>
+        <h1 id="nameDisplay"></h1>
         <h1>Hanged Man</h1>
         <div class="top-bar-button">
             <button id="themeToggle"></button>
         </div>
     </div>
 
-    <div class="secondary-bar">
-        <div id="nameDisplay"></div>
-    </div>
-
-    <div id="nError">
-        You have 0 errors.
-    </div>
-
-    <main id="main">
-        <div id="word">
-            
+    <div class="centralContent">
+        <div>
+            <div class="progress-bar">
+                <div id="errorProgress" class="progress"></div>
+            </div>
+            <img id="imageHanged" src="assets/images/hangman_0.png" height="400px" width="400px" alt="">
+            <main id="main">
+                <div id="word">
+                </div>
+                <br>
+                <div id="tryedLetters">
+                </div>
+            </main>
         </div>
-
-        <div id="tryedLetters">
-
-        </div>
-    </main>
-
+    </div>
 
     <div id="name-modal" class="modal">
         <div class="content">
@@ -67,6 +66,17 @@
             <h2 class="finalWord"></h2>
             <button onclick="newGame()">New game</button>
         </div>
+    </div>
+
+    <div class="imagesToHide">
+        <img src="assets/images/hangman_1.png" alt="">
+        <img src="assets/images/hangman_2.png" alt="">
+        <img src="assets/images/hangman_3.png" alt="">
+        <img src="assets/images/hangman_4.png" alt="">
+        <img src="assets/images/hangman_5.png" alt="">
+        <img src="assets/images/hangman_6.png" alt="">
+        <img src="assets/images/hangman_7.png" alt="">
+        <img src="assets/images/hangman_8.png" alt="">
     </div>
     
 </body>

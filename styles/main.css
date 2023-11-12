@@ -17,7 +17,7 @@
 .light {
     --bg-1: var(--gray-2);
     --bg-2: var(--gray-1);
-    --bg-3: var(--gray-3);
+    --bg-3: var(--gray-2);
     --bg-primary: var(--blue);
     --writing-color: var(--gray-5);
 }
@@ -55,7 +55,7 @@ body {
 }
 
 #nameDisplay {
-    padding: 7px;
+    padding-left: 10px;
     font-size: xx-large;
     font-weight: bold;
 }
@@ -127,14 +127,16 @@ body {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    justify-content: center;
     margin: 0;
     padding: 0;
 }
 
 #word .letter-container{
-    border-bottom: 3px solid var(--bg-primary);
-    display: inline;
-    width: 20px;
+    border-bottom: 3px solid var(--writing-color);
+    display: flex;
+    justify-content: center;
+    width: 25px;
     padding-bottom: 4px;
     margin: 10px;
 }
@@ -152,13 +154,13 @@ body {
 
 @keyframes correct-gues {
     0% {
-        border-bottom: 3px solid var(--bg-primary);
+        border-bottom: 3px solid var(--writing-color);
     }
     50% {
         border-bottom: 3px solid green;
     }
     100% {
-        border-bottom: 3px solid var(--bg-primary);
+        border-bottom: 3px solid var(--writing-color);
     }
 }
 
@@ -193,4 +195,60 @@ body {
     100% {
         color: var(--writing-color);
     }
+}
+
+.imagesToHide {
+    display: none;
+}
+
+.centralContent {
+    margin-top: 25px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
+#main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+}
+
+.progres-barr {
+
+    width: 100%;
+    height: 4px;
+}
+
+.progress {
+    margin-left: 1px;
+    margin-right: 1px;
+    height: 4px;
+    transition: width 1s;
+    background-color: #ff6666;
+}
+
+.maxImage {
+    width: 500px;
+}
+
+#nError {
+    margin-bottom: 10px;
+}
+
+.empty-word {
+    margin-top: 38px !important;
+}
+
+button {
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px var(--bg-2);
+    background-color: var(--bg-2);
+}
+
+button:hover {
+    background-color: var(--bg-3);
 }
