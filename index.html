@@ -19,7 +19,7 @@
 <body class="dark">
 
     <div class="top-bar">
-        <h1 id="nameDisplay"></h1>
+        <h1 class="nameDisplay"></h1>
         <h1>Hanged Man</h1>
         <div class="top-bar-button">
             <button id="themeToggle"></button>
@@ -28,6 +28,20 @@
 
     <div class="centralContent">
         <div>
+            <div class="score">
+                <div class="wins">
+                    <h1>Wins</h1>
+                    <div id="winsDisplay">
+                        0
+                    </div>
+                </div>
+                <div class="loses">
+                    <h1>Loses</h1>
+                    <div id="losesDisplay">
+                        0
+                    </div>
+                </div>
+            </div>
             <div class="progress-bar">
                 <div id="errorProgress" class="progress"></div>
             </div>
@@ -42,7 +56,7 @@
         </div>
     </div>
 
-    <div id="name-modal" class="modal">
+    <div id="name-modal" class="modal show">
         <div class="content">
             <h1>New game</h1>
             <h2>Enter your name</h2>
@@ -54,17 +68,17 @@
 
     <div id="succes-modal" class="modal">
         <div class="content">
-            <h1>Congratulations!!</h1>
+            <h1>Congratulations <div class="nameDisplay"></div>!!</h1>
             <h2 class="finalWord"></h2>
-            <button onclick="newGame()">New game</button>
+            <button onclick="newGame(false)">New game</button>
         </div>
     </div>
 
     <div id="error-modal" class="modal">
         <div class="content">
-            <h1>You failed</h1>
+            <h1>You failed <div class="nameDisplay"></div></h1>
             <h2 class="finalWord"></h2>
-            <button onclick="newGame()">New game</button>
+            <button onclick="newGame(false)">New game</button>
         </div>
     </div>
 

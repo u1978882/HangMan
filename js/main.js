@@ -5,6 +5,8 @@ let currentKnownLetters = [];
 let tryedLetters = [];
 let nKnownLetters = 0;
 let nErrors = 0;
+let wins = 0;
+let loses = 0;
 
 QuerrySelector.ready(() => {
 
@@ -23,6 +25,7 @@ QuerrySelector.ready(() => {
         qs("#nameDisplay").innerText(qs("#name").value())
         qs("#name-modal").removeClass("show")
         qs("#main").addClass("show")
+        qs(".nameDisplay").innerText(qs("#name").value())
         document.addEventListener('keydown', listenerKey, false);
     }, true)
 
@@ -32,16 +35,16 @@ QuerrySelector.ready(() => {
         else qsName.firstElement().focus();
     }, true)
 
-    newGame();
+    newGame(true);
+    qs("#name-modal").addClass("show")
 })
 
 
 
-function newGame() {
+function newGame(firstExecution) {
+    if (!firstExecution) document.addEventListener('keydown', listenerKey, false);
     qs(".modal").removeClass("show")
-    qs("#name-modal").addClass("show")
     qs("#main").removeClass("show")
-    qs("#name").value("")
     qs("#errorProgress").setStyle("width", 0)
     currentWord = getRandomWord();
     currentKnownLetters = [];
@@ -122,11 +125,13 @@ function win(){
     setTimeout(() => {
         qs("#succes-modal").addClass("show")
     }, 500)
+    qs("#winsDisplay").innerText(++wins);
     document.removeEventListener("keydown", listenerKey);
 }
 
 function lose() {
     document.removeEventListener("keydown", listenerKey);
+    qs("#losesDisplay").innerText(++loses);
     setTimeout(() => {
         qs("#error-modal").addClass("show")
     }, 500)

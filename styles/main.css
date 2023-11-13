@@ -252,3 +252,33 @@ button {
 button:hover {
     background-color: var(--bg-3);
 }
+
+.top-bar h1 {
+    padding-left: 10px;
+}
+
+.nameDisplay {
+    display: inline;
+}
+
+.score {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.score h1 {
+    margin-bottom: 0;
+}
+
+#winsDisplay {
+    font-size: xx-large;
+    font-weight:bolder;
+    text-align: center;
+}
+
+#losesDisplay {
+    font-size: xx-large;
+    font-weight:bolder;
+    text-align: center;
+}

@@ -130,6 +130,5 @@ function setLightTheme() {
 
 
 function getImageFromError(nErrors) {
-    console.log(nErrors)
     return `assets/images/hangman_${nErrors}.png`;
 }
